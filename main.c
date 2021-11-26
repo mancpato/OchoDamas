@@ -34,20 +34,20 @@ int main()
     return 0;
 }
 
-int PonerDamas(int NumDama)
+int PonerDamas(int c)
 {
-    if ( NumDama == N ) {
+    if ( c == N ) {
         Soluciones++;
         printf("\nSolución %d\n", Soluciones);
         MostrarTablero();
     }
 
     for ( int r=0 ; r<N ; r++ )
-        if ( SePuede(r, NumDama) ) {
-            T[r][NumDama] = 'D';
-			if ( PonerDamas(NumDama+1) )
+        if ( SePuede(r, c) ) {
+            T[r][c] = 'D';
+			if ( PonerDamas(c+1) )
 				return 1;
-			T[r][NumDama] = '-';
+			T[r][c] = '-';
 		}
 
     return 0;
