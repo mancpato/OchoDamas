@@ -16,9 +16,9 @@ int N = 8;
 int Soluciones = 0;
 char T[8][8];
 
-int PonerDamas(int id);
+void PonerDamas(int c);
 int SePuede(int i, int j);
-void MostrarT();
+void MostrarTablero();
 
 int main()
 {
@@ -34,7 +34,7 @@ int main()
     return 0;
 }
 
-int PonerDamas(int c)
+void PonerDamas(int c)
 {
     if ( c == N ) {
         Soluciones++;
@@ -45,12 +45,9 @@ int PonerDamas(int c)
     for ( int r=0 ; r<N ; r++ )
         if ( SePuede(r, c) ) {
             T[r][c] = 'D';
-			if ( PonerDamas(c+1) )
-				return 1;
+			PonerDamas(c+1);
 			T[r][c] = '-';
 		}
-
-    return 0;
 }
 
 int SePuede(int r, int c)
